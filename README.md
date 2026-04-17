@@ -1,7 +1,6 @@
 # Masterpiece-POS
-### Production-Ready Point of Sale: Web + Desktop
 
----
+A full-stack solution featuring a Spring Boot + PostgreSQL backend, React (Vite + Zustand) web app, and a JavaFX desktop application with offline support. Designed for scalability, security, and performance — with JWT authentication, role-based access control, inventory management, sales processing, reporting, and audit logging built in. Supports both online (web) and offline-first (desktop) workflows, with a clear path to multi-store SaaS architecture.
 
 ## 1. SYSTEM ARCHITECTURE OVERVIEW
 
