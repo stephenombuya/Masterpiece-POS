@@ -2,52 +2,25 @@
 
 Masterpiece-POS is a production-ready, full-stack Point of Sale system built with Spring Boot, PostgreSQL, React (Vite + Zustand), and JavaFX. It supports both online and offline-first workflows, featuring secure JWT authentication, role-based access control, real-time inventory management, sales processing, reporting, and audit logging. Designed with scalability in mind, it provides a clear path toward multi-store and SaaS deployment.
 
-## 1. SYSTEM ARCHITECTURE OVERVIEW
+## 1. ARCHITECTURE DIAGRAMS
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                         WEB-BASED POS SYSTEM                        │
-│                                                                     │
-│   ┌──────────────────┐    HTTPS/REST    ┌─────────────────────────┐ │
-│   │   React Frontend │ ◄──────────────► │  Spring Boot Backend    │ │
-│   │  (Vite + Zustand)│                  │  (REST API, JWT Auth)   │ │
-│   │                  │                  │                         │ │
-│   │  ┌────────────┐  │                  │  ┌───────────────────┐  │ │
-│   │  │ Auth Store │  │                  │  │  SecurityConfig   │  │ │
-│   │  │ Cart Store │  │                  │  │  JwtFilter        │  │ │
-│   │  └────────────┘  │                  │  └───────────────────┘  │ │
-│   │  ┌────────────┐  │                  │  ┌───────────────────┐  │ │
-│   │  │ React Query│  │                  │  │  Controllers      │  │ │
-│   │  │ API Layer  │  │                  │  │  Services         │  │ │
-│   │  └────────────┘  │                  │  │  Repositories     │  │ │
-│   └──────────────────┘                  │  └───────────────────┘  │ │
-│                                         │           │             │ │
-│                                         │    ┌──────▼──────┐      │ │
-│                                         │    │ PostgreSQL  │      │ │
-│                                         │    └─────────────┘      │ │
-│                                         └─────────────────────────┘ │
-└─────────────────────────────────────────────────────────────────────┘
+The following diagrams illustrate the system design, backend structure, and core business workflows of Masterpiece-POS.
 
-┌─────────────────────────────────────────────────────────────────────┐
-│                        DESKTOP POS SYSTEM                           │
-│                                                                     │
-│   ┌──────────────────────────────────────────────────────────────┐  │
-│   │                    JavaFX Application                        │  │
-│   │                                                              │  │
-│   │   ┌──────────────┐   ┌──────────────┐   ┌───────────────┐  │  │
-│   │   │  Controllers  │   │   Services   │   │     DAOs      │  │  │
-│   │   │  (FXML/UI)   │──►│  (Business   │──►│  (SQLite via  │  │  │
-│   │   │              │   │   Logic)     │   │   JDBC)       │  │  │
-│   │   └──────────────┘   └──────────────┘   └───────────────┘  │  │
-│   │                                                 │            │  │
-│   │                                         ┌───────▼──────┐    │  │
-│   │                                         │  SQLite DB   │    │  │
-│   │                                         │  (local file)│    │  │
-│   │                                         └──────────────┘    │  │
-│   └──────────────────────────────────────────────────────────────┘  │
-│                  Works fully OFFLINE | Sync-ready                   │
-└─────────────────────────────────────────────────────────────────────┘
-```
+
+1.1 Overview
+<p align="center"> <img src="https://github.com/stephenombuya/Masterpiece-POS/blob/main/assets/diagrams/pos_system_architecture_overview.svg" width="600"/> </p>
+
+High-level architecture showing the Web POS, Desktop POS, and Spring Boot + PostgreSQL backend integration.
+
+1.2 Backend Architecture Layered Design
+<p align="center"> <img src="https://github.com/stephenombuya/Masterpiece-POS/blob/main/assets/diagrams/pos_backend_layer_diagram.svg" width="600"/> </p>
+
+Clean separation of concerns: Controllers → Services → Repositories → Database.
+
+1.3 Sale Processing Flow Transaction Workflow
+<p align="center"> <img src="https://github.com/stephenombuya/Masterpiece-POS/blob/main/assets/diagrams/pos_sale_processing_flow.svg" width="600"/> </p>
+
+End-to-end flow of a sale from cart creation to stock deduction and receipt generation.
 
 ---
 
