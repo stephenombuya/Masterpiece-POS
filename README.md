@@ -1,6 +1,6 @@
 # Masterpiece-POS
 
----
+Masterpiece-POS is a production-ready, full-stack Point of Sale system built with Spring Boot, PostgreSQL, React (Vite + Zustand), and JavaFX. It supports both online and offline-first workflows, featuring secure JWT authentication, role-based access control, real-time inventory management, sales processing, reporting, and audit logging. Designed with scalability in mind, it provides a clear path toward multi-store and SaaS deployment.
 
 ## 1. SYSTEM ARCHITECTURE OVERVIEW
 
