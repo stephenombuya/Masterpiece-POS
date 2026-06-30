@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:16-alpine:///retailpos_test
+    username: test
+    password: test
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+  flyway:
+    enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+pos:
+  jwt:
+    secret: TestSecretKeyThatIsLongEnoughForHS256AlgorithmTesting123456!
+    expiration-ms: 3600000

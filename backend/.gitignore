@@ -1,0 +1,13 @@
+target/
+*.class
+*.log
+logs/
+receipts/
+.env
+.idea/
+*.iml
+.vscode/
+HELP.md
+.mvn/
+mvnw
+mvnw.cmd
